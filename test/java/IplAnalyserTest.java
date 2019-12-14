@@ -72,7 +72,7 @@ public class IplAnalyserTest {
     @Test
     public void givenIPLTestFile_ShouldReturnOutput() throws IPLBatsmenException {
         IplAnalyser iplAnalyser = new IplAnalyser();
-        List<IPLBatsmenCSV> iplData = iplAnalyser.loadIplData(IPL_BATSMAN_DATA);
+        List<IPLBatsmenCSV> iplData = iplAnalyser.loadIplData(IPL_BATSMAN_TEST_FILE);
         String highestStrikeRate = iplAnalyser.SortIplData(iplData);
         IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(highestStrikeRate, IPLBatsmenCSV[].class);
         Assert.assertEquals("MS Dhoni",iplBatsmenCSVS[0].PLAYER);
