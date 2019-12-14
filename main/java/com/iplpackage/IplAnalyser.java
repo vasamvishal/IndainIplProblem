@@ -13,8 +13,8 @@ import java.util.Iterator;
 public class IplAnalyser {
 
     public int loadIplData(String csvFilePath) throws IPLBatsmenException {
-        int count =0;
-        try  {
+        int count = 0;
+        try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
             CsvToBean<IPLBatsmenCSV> csvToBean = new CsvToBeanBuilder(reader)
                     .withType(IPLBatsmenCSV.class)
@@ -22,11 +22,11 @@ public class IplAnalyser {
                     .build();
             Iterator<IPLBatsmenCSV> csvUserIterator = csvToBean.iterator();
             while (csvUserIterator.hasNext()) {
-               IPLBatsmenCSV iplBatsmenCSV = csvUserIterator.next();
+                IPLBatsmenCSV iplBatsmenCSV = csvUserIterator.next();
                 count++;
             }
-        } catch (NoSuchFileException e){
-          throw new IPLBatsmenException(IPLBatsmenException.IPLException.NO_SUCH_FILE,"NO SUCH FILE");
+        } catch (NoSuchFileException e) {
+            throw new IPLBatsmenException(IPLBatsmenException.IPLException.NO_SUCH_FILE, "NO SUCH FILE");
         } catch (IOException e) {
             e.printStackTrace();
         }

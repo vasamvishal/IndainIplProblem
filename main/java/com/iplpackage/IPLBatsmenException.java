@@ -7,7 +7,7 @@ public class IPLBatsmenException extends Exception {
     }
 
     public enum IPLException{
-        NO_SUCH_FILE
+        NO_SUCH_FILE,HEADER_ISSUE
     }
     public IPLException type;
 
