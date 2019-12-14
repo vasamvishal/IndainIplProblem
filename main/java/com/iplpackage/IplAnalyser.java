@@ -8,23 +8,19 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
-import java.util.Iterator;
+import java.util.List;
 
 public class IplAnalyser {
 
-    public int loadIplData(String csvFilePath) throws IPLBatsmenException {
-        int count = 0;
+    public List<IPLBatsmenCSV> loadIplData(String csvFilePath) throws IPLBatsmenException {
+        List<IPLBatsmenCSV> csvUsers=null;
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
             CsvToBean<IPLBatsmenCSV> csvToBean = new CsvToBeanBuilder(reader)
                     .withType(IPLBatsmenCSV.class)
                     .withIgnoreLeadingWhiteSpace(true)
                     .build();
-            Iterator<IPLBatsmenCSV> csvUserIterator = csvToBean.iterator();
-            while (csvUserIterator.hasNext()) {
-                IPLBatsmenCSV iplBatsmenCSV = csvUserIterator.next();
-                count++;
-            }
+             csvUsers= csvToBean.parse();
         } catch (RuntimeException e) {
             throw new IPLBatsmenException(IPLBatsmenException.IPLException.HEADER_ISSUE, "HEADER PROBLEM");
         } catch (NoSuchFileException e) {
@@ -32,6 +28,6 @@ public class IplAnalyser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return count;
+        return csvUsers;
     }
 }

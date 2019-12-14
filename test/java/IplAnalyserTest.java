@@ -1,10 +1,13 @@
 //Welcome to ipl problem
 
 
+import com.iplpackage.IPLBatsmenCSV;
 import com.iplpackage.IPLBatsmenException;
 import com.iplpackage.IplAnalyser;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.List;
 
 public class IplAnalyserTest {
 
@@ -16,8 +19,8 @@ public class IplAnalyserTest {
     public void givenIPLCsvFile_ShouldReturn_ExactCount() {
         IplAnalyser iplAnalyser = new IplAnalyser();
         try {
-            int iplData = iplAnalyser.loadIplData(IPL_BATSMAN_DATA);
-            Assert.assertEquals(101, iplData);
+            List<IPLBatsmenCSV> iplData = iplAnalyser.loadIplData(IPL_BATSMAN_DATA);
+            Assert.assertEquals(101, iplData.size());
         } catch (IPLBatsmenException e) {
             Assert.assertEquals(IPLBatsmenException.IPLException.NO_SUCH_FILE, e.type);
         }
