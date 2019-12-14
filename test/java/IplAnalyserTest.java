@@ -1,15 +1,16 @@
 //Welcome to ipl problem
 
 
-import censusanalyser.IndiaCensusCSV;
 import com.google.gson.Gson;
 import com.iplpackage.IPLBatsmenCSV;
 import com.iplpackage.IPLBatsmenException;
+import com.iplpackage.IPLDAO;
 import com.iplpackage.IplAnalyser;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Map;
 
 public class IplAnalyserTest {
 
@@ -22,7 +23,7 @@ public class IplAnalyserTest {
     public void givenIPLCsvFile_ShouldReturn_ExactCount() {
         IplAnalyser iplAnalyser = new IplAnalyser();
         try {
-            List<IPLBatsmenCSV> iplData = iplAnalyser.loadIplData(IPL_BATSMAN_DATA);
+            Map<String, IPLDAO> iplData = iplAnalyser.loadIplData(IPL_BATSMAN_DATA);
             Assert.assertEquals(101, iplData.size());
         } catch (IPLBatsmenException e) {
             Assert.assertEquals(IPLBatsmenException.IPLException.NO_SUCH_FILE, e.type);
@@ -73,8 +74,8 @@ public class IplAnalyserTest {
     public void givenIPLTestFile_ShouldReturnOutput()  {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
-            List<IPLBatsmenCSV> iplData = iplAnalyser.loadIplData(IPL_BATSMAN_TEST_FILE);
-            String highestAverage = iplAnalyser.SortIplData(iplData);
+            Map<String, IPLDAO> iplData = iplAnalyser.loadIplData(IPL_BATSMAN_TEST_FILE);
+            String highestAverage = iplAnalyser.SortIplData();
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(highestAverage, IPLBatsmenCSV[].class);
             Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].PLAYER);
         }
@@ -85,25 +86,19 @@ public class IplAnalyserTest {
 
     @Test
     public void givenIPLTestFile_WithMapIsNull_ShouldReturnException() {
-        try {
-            IplAnalyser iplAnalyser = new IplAnalyser();
-            List<IPLBatsmenCSV> iplData = null;
-            String highestStrikeRate = iplAnalyser.SortIplData(iplData);
-            IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(highestStrikeRate, IPLBatsmenCSV[].class);
-            Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].PLAYER);
-        }
-        catch (IPLBatsmenException e)
-        {
-            Assert.assertEquals(IPLBatsmenException.IPLException.LIST_IS_EMPTY,e.type);
-        }
+        IplAnalyser iplAnalyser = new IplAnalyser();
+        List<IPLBatsmenCSV> iplData = null;
+        String highestStrikeRate = iplAnalyser.SortIplData();
+        IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(highestStrikeRate, IPLBatsmenCSV[].class);
+        Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].PLAYER);
     }
 
     @Test
     public void givenIPLTestFile_ShouldReturnOutput_OfHighestStrikeRate()  {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
-            List<IPLBatsmenCSV> iplData = iplAnalyser.loadIplData(IPL_BATSMAN_TEST_FILE);
-            String highestStrikeRate = iplAnalyser.SortIplDataBasedOnStrikeRate(iplData);
+            iplAnalyser.loadIplData(IPL_BATSMAN_DATA);
+            String highestStrikeRate = iplAnalyser.SortIplData();
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(highestStrikeRate, IPLBatsmenCSV[].class);
             Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].PLAYER);
         }
