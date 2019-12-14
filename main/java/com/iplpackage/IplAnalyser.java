@@ -35,12 +35,24 @@ public class IplAnalyser {
         }
     }
 
-    public String SortIplData(List<IPLBatsmenCSV> iplBatsmanTestFile) throws IPLBatsmenException {
+    public String SortIplData(List<IPLBatsmenCSV> iplData) throws IPLBatsmenException {
         if(batsmanList == null)
         {
             throw new IPLBatsmenException(IPLBatsmenException.IPLException.LIST_IS_EMPTY,"LIST IS EMPTY");
         }
-        batsmanList =iplBatsmanTestFile;
+        batsmanList =iplData;
+        Comparator<IPLBatsmenCSV> comparator=Comparator.comparing(batsmen->batsmen.Avg,Comparator.reverseOrder());
+        batsmanList.sort(comparator);
+        String sortedStateData = new Gson().toJson(batsmanList);
+        return sortedStateData;
+    }
+
+    public String SortIplDataBasedOnStrikeRate(List<IPLBatsmenCSV> iplData) throws IPLBatsmenException {
+        if(batsmanList==null)
+        {
+            throw new IPLBatsmenException(IPLBatsmenException.IPLException.LIST_IS_EMPTY,"LIST IS EMPTY");
+        }
+        batsmanList =iplData;
         Comparator<IPLBatsmenCSV> comparator=Comparator.comparing(batsmen->batsmen.Avg,Comparator.reverseOrder());
         batsmanList.sort(comparator);
         String sortedStateData = new Gson().toJson(batsmanList);
