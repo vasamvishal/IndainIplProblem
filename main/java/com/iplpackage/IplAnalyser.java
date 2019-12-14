@@ -13,13 +13,13 @@ import java.util.Comparator;
 import java.util.List;
 
 public class IplAnalyser {
-    List<IPLBatsmenCSV> csvFileList;
+    List<IPLBatsmenCSV> batsmanList;
     public List<IPLBatsmenCSV> loadIplData(String csvFilePath) throws IPLBatsmenException {
         try ( Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))){
 
             ICSVBuilder<IPLBatsmenCSV> csvBuilder= CSVBuilderFactory.createCSVBuilder();
-             csvFileList = csvBuilder.getCSVFileList(reader, IPLBatsmenCSV.class);
-            return csvFileList;
+             batsmanList = csvBuilder.getCSVFileList(reader, IPLBatsmenCSV.class);
+            return batsmanList;
         }
         catch (IOException e)
         {
@@ -35,11 +35,15 @@ public class IplAnalyser {
         }
     }
 
-    public String SortIplData(List<IPLBatsmenCSV> iplBatsmanTestFile) {
-        csvFileList=iplBatsmanTestFile;
+    public String SortIplData(List<IPLBatsmenCSV> iplBatsmanTestFile) throws IPLBatsmenException {
+        if(batsmanList == null)
+        {
+            throw new IPLBatsmenException(IPLBatsmenException.IPLException.LIST_IS_EMPTY,"LIST IS EMPTY");
+        }
+        batsmanList =iplBatsmanTestFile;
         Comparator<IPLBatsmenCSV> comparator=Comparator.comparing(batsmen->batsmen.Avg,Comparator.reverseOrder());
-        csvFileList.sort(comparator);
-        String sortedStateData = new Gson().toJson(csvFileList);
+        batsmanList.sort(comparator);
+        String sortedStateData = new Gson().toJson(batsmanList);
         return sortedStateData;
     }
 }
