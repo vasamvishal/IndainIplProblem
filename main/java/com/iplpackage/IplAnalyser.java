@@ -25,6 +25,8 @@ public class IplAnalyser {
                 IPLBatsmenCSV iplBatsmenCSV = csvUserIterator.next();
                 count++;
             }
+        } catch (RuntimeException e) {
+            throw new IPLBatsmenException(IPLBatsmenException.IPLException.HEADER_ISSUE, "HEADER PROBLEM");
         } catch (NoSuchFileException e) {
             throw new IPLBatsmenException(IPLBatsmenException.IPLException.NO_SUCH_FILE, "NO SUCH FILE");
         } catch (IOException e) {

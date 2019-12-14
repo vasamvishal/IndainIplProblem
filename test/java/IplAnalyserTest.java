@@ -32,4 +32,13 @@ public class IplAnalyserTest {
             Assert.assertEquals(IPLBatsmenException.IPLException.NO_SUCH_FILE, e.type);
         }
     }
+    @Test
+    public void givenIPLWrongCsvFileType_ShouldReturnException() {
+        try {
+            IplAnalyser iplAnalyser = new IplAnalyser();
+            iplAnalyser.loadIplData(BOWLER_IPL_LOAD_DATA);
+        } catch (IPLBatsmenException e) {
+            Assert.assertEquals(IPLBatsmenException.IPLException.HEADER_ISSUE, e.type);
+        }
+    }
 }
