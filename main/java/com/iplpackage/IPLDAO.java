@@ -7,7 +7,7 @@ public class IPLDAO {
     public String NO;
     public String Runs;
     public String HS;
-    public String avg;
+    public Double avg;
     public String BF;
     public String SR;
 
@@ -19,7 +19,7 @@ public class IPLDAO {
         this.NO=iplmap.NO;
         this.Runs=iplmap.Runs;
         this.HS=iplmap.HS;
-        this.avg=iplmap.Avg;
+        this.avg=iplmap.Avg.contains("-")?0:Double.valueOf(iplmap.Avg);
         this.BF=iplmap.BF;
         this.SR=iplmap.SR;
     }
