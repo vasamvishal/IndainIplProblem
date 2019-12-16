@@ -7,28 +7,28 @@ public class IPLBatsmenCSV {
     public String POS;
 
     @CsvBindByName(column = "PLAYER",required = true)
-    public String PLAYER;
+    public String playerName;
 
     @CsvBindByName(column = "Mat",required = true)
-    public String Mat;
+    public String noOfMatches;
 
     @CsvBindByName(column = "NO",required = true)
     public String NO;
 
     @CsvBindByName(column = "Runs",required = true)
-    public String Runs;
+    public String noOfRuns;
 
     @CsvBindByName(column = "HS",required = true)
-    public String HS;
+    public String highestScore;
 
     @CsvBindByName(column = "Avg",required = true)
-    public String Avg;
+    public String Average;
 
     @CsvBindByName(column = "BF",required = true)
     public String BF;
 
     @CsvBindByName(column = "SR",required = true)
-    public String SR;
+    public String strikeRate;
 
     @CsvBindByName(column = "6s",required = true)
     public String Sixes;

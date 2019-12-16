@@ -1,15 +1,15 @@
 package com.iplpackage;
 
 public class IPLDAO {
-    public String POS;
-    public String PLAYER;
-    public String Mat;
+    public String position;
+    public String playerName;
+    public String noOfMatches;
     public String NO;
-    public int Runs;
-    public String HS;
-    public Double avg;
+    public int noOfRuns;
+    public String highestScore;
+    public Double Average;
     public String BF;
-    public String SR;
+    public String strikeRate;
     public String Fours;
     public String Sixes;
 
@@ -17,15 +17,15 @@ public class IPLDAO {
     }
 
     public IPLDAO(IPLBatsmenCSV iplmap) {
-        this.POS=iplmap.POS;
-        this.PLAYER=iplmap.PLAYER;
-        this.Mat=iplmap.Mat;
+        this.position=iplmap.POS;
+        this.playerName=iplmap.playerName;
+        this.noOfMatches=iplmap.noOfMatches;
         this.NO=iplmap.NO;
-        this.Runs=Integer.parseInt(iplmap.Runs);
-        this.HS=iplmap.HS;
-        this.avg=iplmap.Avg.contains("-")?0:Double.valueOf(iplmap.Avg);
+        this.noOfRuns=Integer.parseInt(iplmap.noOfRuns);
+        this.highestScore=iplmap.highestScore;
+        this.Average=iplmap.Average.contains("-")?0:Double.valueOf(iplmap.Average);
         this.BF=iplmap.BF;
-        this.SR=iplmap.SR;
+        this.strikeRate=iplmap.strikeRate;
         this.Fours=iplmap.Fours;
         this.Sixes=iplmap.Sixes;
     }

@@ -1,10 +1,10 @@
 //Welcome to ipl problem
 
-
 import com.google.gson.Gson;
 import com.iplpackage.*;
 import org.junit.Assert;
 import org.junit.Test;
+
 import java.util.Map;
 
 public class IplAnalyserTest {
@@ -69,10 +69,10 @@ public class IplAnalyserTest {
     public void givenIPLTestFile_ShouldReturnOutput() {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
-            Map<String, IPLDAO> iplData = iplAnalyser.loadIplData(IPL_BATSMAN_TEST_FILE);
+            iplAnalyser.loadIplData(IPL_BATSMAN_TEST_FILE);
             String highestAverage = iplAnalyser.sortIplData(SortingTypes.PLAYER);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(highestAverage, IPLBatsmenCSV[].class);
-            Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].PLAYER);
+            Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
         }
     }
@@ -84,10 +84,11 @@ public class IplAnalyserTest {
             iplAnalyser.loadIplData(IPL_BATSMAN_DATA);
             String highestStrikeRate = iplAnalyser.sortIplData(SortingTypes.Average);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(highestStrikeRate, IPLBatsmenCSV[].class);
-            Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].PLAYER);
+            Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
         }
     }
+
     @Test
     public void givenIPLFile_ShouldReturnOutput_MaximumFoursAndSix() {
         try {
@@ -95,7 +96,20 @@ public class IplAnalyserTest {
             iplAnalyser.loadIplData(IPL_BATSMAN_DATA);
             String noOfSixesandFour = iplAnalyser.sortIplData(SortingTypes.NO_OF_SIXES_AND_FOURS);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(noOfSixesandFour, IPLBatsmenCSV[].class);
-            Assert.assertEquals("David Warner ", iplBatsmenCSVS[99].PLAYER);
+            Assert.assertEquals("David Warner ", iplBatsmenCSVS[99].playerName);
+        } catch (IPLBatsmenException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenIPLFile_ShouldReturnOutput_HighestStrikeRate_WithMaximumFoursAndSixes() {
+        try {
+            IplAnalyser iplAnalyser = new IplAnalyser();
+            iplAnalyser.loadIplData(IPL_BATSMAN_TEST_FILE);
+            String highestStrikeRate = iplAnalyser.sortIplData(SortingTypes.HIGHEST_STRIKERATE_BASED_ON_FOURSANDSIXES);
+            IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(highestStrikeRate, IPLBatsmenCSV[].class);
+            Assert.assertEquals("David Warner ", iplBatsmenCSVS[99].playerName);
         } catch (IPLBatsmenException e) {
             e.printStackTrace();
         }
