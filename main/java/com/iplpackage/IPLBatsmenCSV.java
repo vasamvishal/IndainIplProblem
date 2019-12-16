@@ -30,4 +30,10 @@ public class IPLBatsmenCSV {
     @CsvBindByName(column = "SR",required = true)
     public String SR;
 
+    @CsvBindByName(column = "6s",required = true)
+    public String Sixes;
+
+    @CsvBindByName(column = "4s",required = true)
+    public String Fours;
+
 }

@@ -10,7 +10,11 @@ public class IPLDAO {
     public Double avg;
     public String BF;
     public String SR;
+    public String Fours;
+    public String Sixes;
 
+    public IPLDAO() {
+    }
 
     public IPLDAO(IPLBatsmenCSV iplmap) {
         this.POS=iplmap.POS;
@@ -22,5 +26,7 @@ public class IPLDAO {
         this.avg=iplmap.Avg.contains("-")?0:Double.valueOf(iplmap.Avg);
         this.BF=iplmap.BF;
         this.SR=iplmap.SR;
+        this.Fours=iplmap.Fours;
+        this.Sixes=iplmap.Sixes;
     }
 }

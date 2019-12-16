@@ -2,18 +2,12 @@
 
 
 import com.google.gson.Gson;
-import com.iplpackage.IPLBatsmenCSV;
-import com.iplpackage.IPLBatsmenException;
-import com.iplpackage.IPLDAO;
-import com.iplpackage.IplAnalyser;
+import com.iplpackage.*;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.List;
 import java.util.Map;
 
 public class IplAnalyserTest {
-
     private static String IPL_BATSMAN_DATA = "/home/user/IPlProblem/IPLProblem/src/test/resources/IPL2019FactsheetMostRuns.csv";
     private static String WRONG_BATSMAN_IPL_LOAD_DATA = "/home/user/IPlProblem/IPL/Problem/src/test/resources/IPL2019FactsheetMostRuns.csv";
     private static String BOWLER_IPL_LOAD_DATA = "/home/user/IPlProblem/IPLProblem/src/test/resources/IPL2019FactsheetMostWkts.csv";
@@ -76,7 +70,7 @@ public class IplAnalyserTest {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
             Map<String, IPLDAO> iplData = iplAnalyser.loadIplData(IPL_BATSMAN_TEST_FILE);
-            String highestAverage = iplAnalyser.SortIplData();
+            String highestAverage = iplAnalyser.sortIplData(SortingTypes.PLAYER);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(highestAverage, IPLBatsmenCSV[].class);
             Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].PLAYER);
         } catch (IPLBatsmenException e) {
@@ -88,7 +82,7 @@ public class IplAnalyserTest {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
             iplAnalyser.loadIplData(IPL_BATSMAN_DATA);
-            String highestStrikeRate = iplAnalyser.sortIplData();
+            String highestStrikeRate = iplAnalyser.sortIplData(SortingTypes.Average);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(highestStrikeRate, IPLBatsmenCSV[].class);
             Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].PLAYER);
         } catch (IPLBatsmenException e) {
