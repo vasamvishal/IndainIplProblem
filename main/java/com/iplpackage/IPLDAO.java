@@ -5,7 +5,7 @@ public class IPLDAO {
     public String PLAYER;
     public String Mat;
     public String NO;
-    public String Runs;
+    public int Runs;
     public String HS;
     public Double avg;
     public String BF;
@@ -21,7 +21,7 @@ public class IPLDAO {
         this.PLAYER=iplmap.PLAYER;
         this.Mat=iplmap.Mat;
         this.NO=iplmap.NO;
-        this.Runs=iplmap.Runs;
+        this.Runs=Integer.parseInt(iplmap.Runs);
         this.HS=iplmap.HS;
         this.avg=iplmap.Avg.contains("-")?0:Double.valueOf(iplmap.Avg);
         this.BF=iplmap.BF;

@@ -1,5 +1,5 @@
 package com.iplpackage;
 
 public enum SortingTypes {
-    Average, PLAYER
+    Average, NO_OF_SIXES_AND_FOURS, PLAYER
 }

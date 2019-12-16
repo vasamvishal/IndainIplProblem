@@ -22,6 +22,7 @@ public class IplAnalyser {
         this.batsmanMap = new HashMap<>();
         this.sortingMap=new HashMap<>();
         this.sortingMap.put(SortingTypes.Average, Comparator.comparing(sortType -> sortType.avg,Comparator.reverseOrder()));
+        this.sortingMap.put(SortingTypes.NO_OF_SIXES_AND_FOURS,new SortOnMultipleTypes());
     }
 
     public Map<String, IPLDAO> loadIplData(String csvFilePath) throws IPLBatsmenException {

@@ -88,4 +88,16 @@ public class IplAnalyserTest {
         } catch (IPLBatsmenException e) {
         }
     }
+    @Test
+    public void givenIPLFile_ShouldReturnOutput_MaximumFoursAndSix() {
+        try {
+            IplAnalyser iplAnalyser = new IplAnalyser();
+            iplAnalyser.loadIplData(IPL_BATSMAN_DATA);
+            String noOfSixesandFour = iplAnalyser.sortIplData(SortingTypes.NO_OF_SIXES_AND_FOURS);
+            IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(noOfSixesandFour, IPLBatsmenCSV[].class);
+            Assert.assertEquals("David Warner ", iplBatsmenCSVS[99].PLAYER);
+        } catch (IPLBatsmenException e) {
+            e.printStackTrace();
+        }
+    }
 }
