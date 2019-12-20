@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="iplpackage.IplAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-20T13:58:31" hostname="admin1-LIVA-Z2V" time="0.442">
+  <properties/>
+  <testcase name="givenIPLBowlerFile_ShouldReturnOutput_WithBestEconomyInBowlers" classname="iplpackage.IplAnalyserTest" time="0.442"/>
+  <system-out><![CDATA[iplpackage.IPLBowler
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
