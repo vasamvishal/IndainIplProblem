@@ -23,6 +23,8 @@ public class IplAnalyser {
         this.sortingMap.put(SortingTypes.MAXIMUM_RUNS_AND_BESTAVERAGE,compareBasedOnRuns.
                 thenComparing(sortType ->sortType.average).reversed());
         this.sortingMap.put(SortingTypes.BESTAVERAGE_IN_BOWLERS,Comparator.comparing(sorttype -> sorttype.average));
+        this.sortingMap.put(SortingTypes.BESTSTRIKE_RATE_IN_BOWLERS,Comparator.comparing
+                                                        (sorttype -> sorttype.strikeRate,Comparator.reverseOrder()));
     }
     public Map<String,IPLDAO> loadIplData(SortingTypes eClass,String csvFilePath) throws IPLBatsmenException {
             IPLAdapter iplObject = IPLFactory.createObject(eClass);

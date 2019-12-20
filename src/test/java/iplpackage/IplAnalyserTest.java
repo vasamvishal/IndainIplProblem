@@ -153,5 +153,17 @@ public class IplAnalyserTest {
             e.printStackTrace();
         }
     }
+    @Test
+    public void givenIPLBowlerFile_ShouldReturnOutput_WithMaximumStrikeRateInBowlers() {
+        try {
+            IplAnalyser iplAnalyser = new IplAnalyser();
+            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BOWLER, DEMO_IPLBOWLER_FILE);
+            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData(SortingTypes.BESTSTRIKE_RATE_IN_BOWLERS, stringIPLDAOMap);
+            IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
+            Assert.assertEquals("Ravichandran Ashwin", iplBatsmenCSVS[0].playerName);
+        } catch (IPLBatsmenException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
