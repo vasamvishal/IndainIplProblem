@@ -127,6 +127,17 @@ public class IplAnalyserTest {
             e.printStackTrace();
         }
     }
+    @Test
+    public void givenIPLFile_ShouldReturnOutput_WithMaximumRunsAndBestAverage() {
+        try {
+            IplAnalyser iplAnalyser = new IplAnalyser();
+            iplAnalyser.loadIplData(IPL_BATSMAN_TEST_FILE);
+            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData(SortingTypes.MAXIMUM_RUNS_AND_BESTAVERAGE);
+            IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
+            Assert.assertEquals("Andre Russell", iplBatsmenCSVS[0].playerName);
+        } catch (IPLBatsmenException e) {
+            e.printStackTrace();
+        }
     }
 }
 

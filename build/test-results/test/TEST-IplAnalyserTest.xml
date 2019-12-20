@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="IplAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-20T07:49:48" hostname="admin1-LIVA-Z2V" time="0.81">
+<testsuite name="IplAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-20T07:51:49" hostname="admin1-LIVA-Z2V" time="0.305">
   <properties/>
-  <testcase name="givenIPLFile_ShouldReturnOutput_WithGreatAveragesAndHighestStrikeRate" classname="IplAnalyserTest" time="0.81"/>
+  <testcase name="givenIPLFile_ShouldReturnOutput_WithMaximumRunsAndBestAverage" classname="IplAnalyserTest" time="0.305"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
