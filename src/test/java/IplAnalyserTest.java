@@ -9,9 +9,9 @@ import java.util.Map;
 public class IplAnalyserTest {
     private static String IPL_BATSMAN_DATA = "/home/user/IPlProblem/IPLProblem/src/test/resources/IPL2019FactsheetMostRuns.csv";
     private static String WRONG_BATSMAN_IPL_LOAD_DATA = "/home/user/IPlProblem/IPL/Problem/src/test/resources/IPL2019FactsheetMostRuns.csv";
-    private static String BOWLER_IPL_LOAD_DATA = "/home/user/IPlProblem/IPLProblem/src/test/resources/IPL2019FactsheetMostWkts.csv";
-    private static String IPL_BATSMAN_DELIMITER_DATA = "/home/user/IPlProblem/IPLProblem/src/test/resources/IPL2019FactsheetDelimiterTypeMostRuns.csv";
-    private static String IPL_BATSMAN_TEST_FILE = "/home/user/IPlProblem/IPLProblem/src/test/resources/ipl2019FactsheetTestFile.csv";
+    private static String BOWLER_IPL_LOAD_DATA = "/home/user/new ipl folder/src/test/resources/IPL2019FactsheetMostWkts.csv";
+    private static String IPL_BATSMAN_DELIMITER_DATA = "/home/user/new ipl folder/src/test/resources/IPL2019FactsheetDelimiterTypeMostRuns.csv";
+    private static String IPL_BATSMAN_TEST_FILE = "/home/user/new ipl folder/src/test/resources/ipl2019FactsheetTestFile.csv";
 
     @Test
     public void givenIPLCsvFile_ShouldReturn_ExactCount() {
@@ -95,7 +95,7 @@ public class IplAnalyserTest {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
             iplAnalyser.loadIplData(IPL_BATSMAN_DATA);
-               String noOfSixesandFour = iplAnalyser.sortIplData(SortingTypes.NO_OF_SIXES_AND_FOURS);
+            String noOfSixesandFour = iplAnalyser.sortIplData(SortingTypes.NO_OF_SIXES_AND_FOURS);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(noOfSixesandFour, IPLBatsmenCSV[].class);
             Assert.assertEquals("David Warner ", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
@@ -115,4 +115,18 @@ public class IplAnalyserTest {
             e.printStackTrace();
         }
     }
+    @Test
+    public void givenIPLFile_ShouldReturnOutput_WithGreatAveragesAndHighestStrikeRate() {
+        try {
+            IplAnalyser iplAnalyser = new IplAnalyser();
+            iplAnalyser.loadIplData(IPL_BATSMAN_DATA);
+            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData(SortingTypes.HIGHEST_AVERAGE_BASED_ON_HIGHEST_STRIKERATE);
+            IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
+            Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].playerName);
+        } catch (IPLBatsmenException e) {
+            e.printStackTrace();
+        }
+    }
+    }
 }
+

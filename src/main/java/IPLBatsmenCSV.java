@@ -22,7 +22,7 @@ public class IPLBatsmenCSV {
     public String highestScore;
 
     @CsvBindByName(column = "Avg",required = true)
-    public String Average;
+    public String average;
 
     @CsvBindByName(column = "BF",required = true)
     public String BF;
@@ -31,9 +31,9 @@ public class IPLBatsmenCSV {
     public String strikeRate;
 
     @CsvBindByName(column = "6s",required = true)
-    public String Sixes;
+    public String sixes;
 
     @CsvBindByName(column = "4s",required = true)
-    public String Fours;
+    public String fours;
 
 }

@@ -6,11 +6,11 @@ public class IPLDAO {
     public String NO;
     public int noOfRuns;
     public String highestScore;
-    public Double Average;
+    public Double average;
     public String BF;
-    public String strikeRate;
-    public String Fours;
-    public String Sixes;
+    public Double strikeRate;
+    public String fours;
+    public String sixes;
 
     public IPLDAO() {
     }
@@ -22,10 +22,10 @@ public class IPLDAO {
         this.NO=iplmap.NO;
         this.noOfRuns=Integer.parseInt(iplmap.noOfRuns);
         this.highestScore=iplmap.highestScore;
-        this.Average=iplmap.Average.contains("-")?0:Double.valueOf(iplmap.Average);
+        this.average =iplmap.average.contains("-")?0:Double.valueOf(iplmap.average);
         this.BF=iplmap.BF;
-        this.strikeRate=iplmap.strikeRate;
-        this.Fours=iplmap.Fours;
-        this.Sixes=iplmap.Sixes;
+        this.strikeRate=Double.valueOf(iplmap.strikeRate);
+        this.fours =iplmap.fours;
+        this.sixes =iplmap.sixes;
     }
 }

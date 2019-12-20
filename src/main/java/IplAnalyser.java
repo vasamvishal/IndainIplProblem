@@ -17,14 +17,17 @@ public class IplAnalyser {
     public IplAnalyser() {
         this.battingRecordMap = new HashMap<>();
         this.sortingMap=new HashMap<>();
-        this.sortingMap.put(SortingTypes.Average,Comparator.comparing(sortType -> sortType.Average,
+        this.sortingMap.put(SortingTypes.Average,Comparator.comparing(sortType -> sortType.average,
                                                                     Comparator.reverseOrder()));
         this.sortingMap.put(SortingTypes.NO_OF_SIXES_AND_FOURS,new SortOnMultipleTypes().reversed());
         this.sortingMap.put(SortingTypes.PLAYER,Comparator.comparing(sortType -> sortType.playerName
                                                                    ));
         this.sortingMap.put(SortingTypes.HIGHEST_STRIKERATE_BASED_ON_FOURSANDSIXES,new SortOnMultipleTypes().reversed().
                                                                     thenComparing((sortType -> sortType.strikeRate)));
-
+        Comparator<IPLDAO> compareAverage=Comparator.comparing(sortType ->sortType.average);
+        this.sortingMap.put(SortingTypes.HIGHEST_AVERAGE_BASED_ON_HIGHEST_STRIKERATE,compareAverage.thenComparing(sortType ->sortType.strikeRate).reversed());
+        Comparator<IPLDAO> compareBasedOnRuns=Comparator.comparing(sortType ->sortType.noOfRuns);
+        this.sortingMap.put(SortingTypes.MAXIMUM_RUNS_AND_BESTAVERAGE,compareBasedOnRuns.thenComparing(sortType ->sortType.average).reversed());
     }
 
     public Map<String, IPLDAO> loadIplData(String csvFilePath) throws IPLBatsmenException {

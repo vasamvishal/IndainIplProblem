@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="IplAnalyserTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2019-12-20T06:17:49" hostname="admin1-LIVA-Z2V" time="2.337">
+<testsuite name="IplAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-20T07:49:48" hostname="admin1-LIVA-Z2V" time="0.81">
   <properties/>
-  <testcase name="givenIPLTestFile_ShouldReturnOutput_OfHighestAverageRate" classname="IplAnalyserTest" time="1.405"/>
-  <testcase name="givenIPLCsvFile_ShouldReturn_ExactCount" classname="IplAnalyserTest" time="0.395"/>
-  <testcase name="givenIPLCsvFileForHeaderIssue_ShouldReturnException" classname="IplAnalyserTest" time="0.007"/>
-  <testcase name="givenIPLWrongCsvFileType_ShouldReturnException" classname="IplAnalyserTest" time="0.047"/>
-  <testcase name="givenIPLWrongCsvFile_ShouldReturnException" classname="IplAnalyserTest" time="0.004"/>
-  <testcase name="givenIPLFile_ShouldReturnOutput_MaximumFoursAndSix" classname="IplAnalyserTest" time="0.38"/>
-  <testcase name="givenIPLFile_ShouldReturnOutput_HighestStrikeRate_WithMaximumFoursAndSixes" classname="IplAnalyserTest" time="0.036"/>
-  <testcase name="givenIPCsvFileForDelimiterIssue_ShouldReturnException" classname="IplAnalyserTest" time="0.002"/>
-  <testcase name="givenIPLTestFile_ShouldReturnOutput" classname="IplAnalyserTest" time="0.047"/>
+  <testcase name="givenIPLFile_ShouldReturnOutput_WithGreatAveragesAndHighestStrikeRate" classname="IplAnalyserTest" time="0.81"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
