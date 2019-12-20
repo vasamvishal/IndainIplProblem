@@ -1,10 +1,10 @@
 package iplpackage;
 
 public class IPLDAO {
-    public String fiveWicketHaul;
+    public int fiveWicketHaul;
     public String economy;
     public String noOfWickets;
-    public String fourWicketHaul;
+    public int fourWicketHaul;
     public String inns;
     public String overs;
     public String position;
@@ -46,8 +46,8 @@ public class IPLDAO {
         this.inns=iplmap.inns;
         this.noOfWickets=iplmap.noOfWickets;
         this.economy=iplmap.economy;
-        this.fourWicketHaul=iplmap.fourWicketHaul;
-        this.fiveWicketHaul=iplmap.fiveWicketHaul;
+        this.fourWicketHaul=Integer.parseInt(iplmap.fourWicketHaul);
+        this.fiveWicketHaul=Integer.parseInt(iplmap.fiveWicketHaul);
         this.strikeRate=Double.valueOf(iplmap.strikeRate);
     }
 }

@@ -26,7 +26,9 @@ public class IplAnalyser {
         this.sortingMap.put(SortingTypes.BESTSTRIKE_RATE_IN_BOWLERS,Comparator.comparing
                                                         (sorttype -> sorttype.strikeRate,Comparator.reverseOrder()));
         this.sortingMap.put(SortingTypes.BESTECONOMY_IN_BOWLERS,Comparator.comparing
-                (sorttype -> sorttype.economy,Comparator.reverseOrder()));
+                            (sorttype -> sorttype.economy,Comparator.reverseOrder()));
+        this.sortingMap.put(SortingTypes.BESTSTRIKE_RATE_WITH4AND6,new bowlerStrikeRate().
+                                        thenComparing(sorttype ->sorttype.strikeRate).reversed());
     }
     public Map<String,IPLDAO> loadIplData(SortingTypes eClass,String csvFilePath) throws IPLBatsmenException {
             IPLAdapter iplObject = IPLFactory.createObject(eClass);
