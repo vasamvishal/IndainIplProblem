@@ -1,5 +1,12 @@
+package iplpackage;
 
 public class IPLDAO {
+    public String fiveWicketHaul;
+    public String economy;
+    public String noOfWickets;
+    public String fourWicketHaul;
+    public String inns;
+    public String overs;
     public String position;
     public String playerName;
     public String noOfMatches;
@@ -27,5 +34,20 @@ public class IPLDAO {
         this.strikeRate=Double.valueOf(iplmap.strikeRate);
         this.fours =iplmap.fours;
         this.sixes =iplmap.sixes;
+    }
+
+    public IPLDAO(IPLBowler iplmap) {
+        this.position=iplmap.POS;
+        this.playerName=iplmap.playerName;
+        this.noOfMatches=iplmap.noOfMatches;
+        this.noOfRuns=Integer.parseInt(iplmap.noOfRuns);
+        this.overs=iplmap.overs;
+        this.average =iplmap.average.contains("-")?0:Double.parseDouble(iplmap.average);
+        this.inns=iplmap.inns;
+        this.noOfWickets=iplmap.noOfWickets;
+        this.economy=iplmap.economy;
+        this.fourWicketHaul=iplmap.fourWicketHaul;
+        this.fiveWicketHaul=iplmap.fiveWicketHaul;
+        this.strikeRate=Double.valueOf(iplmap.strikeRate);
     }
 }

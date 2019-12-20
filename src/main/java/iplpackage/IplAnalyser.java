@@ -1,9 +1,11 @@
+package iplpackage;
 
 import com.google.gson.Gson;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class IplAnalyser {
+    private  Map<String, IPLDAO> bowlingSortMap;
     Map<String, IPLDAO> battingRecordMap;
     Map<SortingTypes,Comparator<IPLDAO>> sortingMap;
     public IplAnalyser() {
@@ -20,6 +22,7 @@ public class IplAnalyser {
         Comparator<IPLDAO> compareBasedOnRuns=Comparator.comparing(sortType ->sortType.noOfRuns);
         this.sortingMap.put(SortingTypes.MAXIMUM_RUNS_AND_BESTAVERAGE,compareBasedOnRuns.
                 thenComparing(sortType ->sortType.average).reversed());
+        this.sortingMap.put(SortingTypes.BESTAVERAGE_IN_BOWLERS,Comparator.comparing(sorttype -> sorttype.average));
     }
     public Map<String,IPLDAO> loadIplData(SortingTypes eClass,String csvFilePath) throws IPLBatsmenException {
             IPLAdapter iplObject = IPLFactory.createObject(eClass);
@@ -28,8 +31,7 @@ public class IplAnalyser {
     }
 
     public String sortIplData(SortingTypes sortType, Map<String, IPLDAO> stringIPLDAOMap) {
-        battingRecordMap=stringIPLDAOMap;
-        ArrayList sortedList = battingRecordMap.values().stream()
+        ArrayList sortedList = stringIPLDAOMap.values().stream()
                 .sorted(this.sortingMap.get(sortType))
                 .collect(Collectors.toCollection(ArrayList::new));
         String sortedStateData = new Gson().toJson(sortedList);

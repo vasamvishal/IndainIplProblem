@@ -1,6 +1,4 @@
-
-
-import java.util.Comparator;
+package iplpackage;
 
 public class SortOnMultipleTypes implements java.util.Comparator<IPLDAO> {
     @Override

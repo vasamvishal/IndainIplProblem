@@ -1,6 +1,7 @@
-//Welcome to ipl problem
+package iplpackage;//Welcome to ipl problem
 
 import com.google.gson.Gson;
+import iplpackage.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,7 +13,7 @@ public class IplAnalyserTest {
     private static String BOWLER_IPL_LOAD_DATA = "/home/user/new ipl folder/src/test/resources/IPL2019FactsheetMostWkts.csv";
     private static String IPL_BATSMAN_DELIMITER_DATA = "/home/user/new ipl folder/src/test/resources/IPL2019FactsheetDelimiterTypeMostRuns.csv";
     private static String IPL_BATSMAN_TEST_FILE = "/home/user/new ipl folder/src/test/resources/ipl2019FactsheetTestFile.csv";
-
+    private static String DEMO_IPLBOWLER_FILE="/home/user/new ipl folder/src/test/resources/DemoBowlerFile.csv";
     @Test
     public void givenIPLCsvFile_ShouldReturn_ExactCount() {
 
@@ -136,6 +137,18 @@ public class IplAnalyserTest {
             String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData(SortingTypes.MAXIMUM_RUNS_AND_BESTAVERAGE, stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
             Assert.assertEquals("Andre Russell", iplBatsmenCSVS[0].playerName);
+        } catch (IPLBatsmenException e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void givenIPLBowlerFile_ShouldReturnOutput_WithMaximumAverageInBowlers() {
+        try {
+            IplAnalyser iplAnalyser = new IplAnalyser();
+            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BOWLER, DEMO_IPLBOWLER_FILE);
+            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData(SortingTypes.BESTAVERAGE_IN_BOWLERS, stringIPLDAOMap);
+            IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
+            Assert.assertEquals("Kagiso Rabada", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
             e.printStackTrace();
         }
