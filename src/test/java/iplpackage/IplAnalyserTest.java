@@ -110,7 +110,8 @@ public class IplAnalyserTest {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
             Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BATSMAN, IPL_BATSMAN_TEST_FILE);
-            String highestStrikeRate = iplAnalyser.sortIplData(SortingTypes.HIGHEST_STRIKERATE_BASED_ON_FOURSANDSIXES, stringIPLDAOMap);
+            String highestStrikeRate = iplAnalyser.sortIplData(SortingTypes.HIGHEST_STRIKERATE_BASED_ON_FOURSANDSIXES,
+                                                                                                    stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(highestStrikeRate, IPLBatsmenCSV[].class);
             Assert.assertEquals("Andre Russell", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
@@ -122,7 +123,8 @@ public class IplAnalyserTest {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
             Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BATSMAN, IPL_BATSMAN_DATA);
-            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData(SortingTypes.HIGHEST_AVERAGE_BASED_ON_HIGHEST_STRIKERATE, stringIPLDAOMap);
+            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
+                                        (SortingTypes.HIGHEST_AVERAGE_BASED_ON_HIGHEST_STRIKERATE, stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
             Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
@@ -134,7 +136,8 @@ public class IplAnalyserTest {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
             Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BATSMAN, IPL_BATSMAN_TEST_FILE);
-            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData(SortingTypes.MAXIMUM_RUNS_AND_BESTAVERAGE, stringIPLDAOMap);
+            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
+                                                        (SortingTypes.MAXIMUM_RUNS_AND_BESTAVERAGE, stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
             Assert.assertEquals("Andre Russell", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
@@ -146,7 +149,8 @@ public class IplAnalyserTest {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
             Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BOWLER, DEMO_IPLBOWLER_FILE);
-            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData(SortingTypes.BESTAVERAGE_IN_BOWLERS, stringIPLDAOMap);
+            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
+                                                            (SortingTypes.BESTAVERAGE_IN_BOWLERS, stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
             Assert.assertEquals("Kagiso Rabada", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
@@ -158,7 +162,8 @@ public class IplAnalyserTest {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
             Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BOWLER, DEMO_IPLBOWLER_FILE);
-            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData(SortingTypes.BESTSTRIKE_RATE_IN_BOWLERS, stringIPLDAOMap);
+            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData(
+                                                        SortingTypes.BESTSTRIKE_RATE_IN_BOWLERS, stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
             Assert.assertEquals("Ravichandran Ashwin", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
@@ -170,7 +175,8 @@ public class IplAnalyserTest {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
             Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BOWLER, DEMO_IPLBOWLER_FILE);
-            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData(SortingTypes.BESTECONOMY_IN_BOWLERS, stringIPLDAOMap);
+            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
+                                                            (SortingTypes.BESTECONOMY_IN_BOWLERS, stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
             Assert.assertEquals("Lasith Malinga", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
@@ -182,7 +188,21 @@ public class IplAnalyserTest {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
             Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BOWLER, DEMO_IPLBOWLER_FILE);
-            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData(SortingTypes.BESTSTRIKE_RATE_WITH4AND6, stringIPLDAOMap);
+            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
+                                                            (SortingTypes.BESTSTRIKE_RATE_WITH4AND6, stringIPLDAOMap);
+            IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
+            Assert.assertEquals("Lasith Malinga", iplBatsmenCSVS[0].playerName);
+        } catch (IPLBatsmenException e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void givenIPLBowlerFile_ShouldReturnOutput_WithBestBowlingAverageWithBestStrikeRateInBowlers() {
+        try {
+            IplAnalyser iplAnalyser = new IplAnalyser();
+            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BOWLER, DEMO_IPLBOWLER_FILE);
+            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
+                                                        (SortingTypes.BESTAVERGAE_BESTSTRIKE_RATE ,stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
             Assert.assertEquals("Lasith Malinga", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
