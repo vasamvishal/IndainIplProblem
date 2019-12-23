@@ -11,7 +11,7 @@ public class IPLBatsmenCSV {
     public String playerName;
 
     @CsvBindByName(column = "Mat")
-    public String noOfMatches;
+    public double noOfMatches;
 
     @CsvBindByName(column = "NO")
     public String NO;

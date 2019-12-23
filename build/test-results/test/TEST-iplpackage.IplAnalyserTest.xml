@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="iplpackage.IplAnalyserTest" tests="17" skipped="0" failures="1" errors="0" timestamp="2019-12-23T10:31:07" hostname="admin1-LIVA-Z2V" time="5.04">
+<testsuite name="iplpackage.IplAnalyserTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2019-12-23T11:08:40" hostname="admin1-LIVA-Z2V" time="1.507">
   <properties/>
-  <testcase name="givenIPLTestFile_ShouldReturnOutput_OfHighestAverageRate" classname="iplpackage.IplAnalyserTest" time="0.923"/>
-  <testcase name="givenIPLFile_ShouldReturnOutput_WithGreatAveragesAndHighestStrikeRate" classname="iplpackage.IplAnalyserTest" time="0.354"/>
-  <testcase name="givenIPLCsvFile_ShouldReturn_ExactCount" classname="iplpackage.IplAnalyserTest" time="0.383"/>
-  <testcase name="givenIPLBowlerFile_ShouldReturnOutput_WithMaximumStrikeRateInBowlers" classname="iplpackage.IplAnalyserTest" time="0.436"/>
-  <testcase name="givenIPLCsvFileForHeaderIssue_ShouldReturnException" classname="iplpackage.IplAnalyserTest" time="0.003"/>
-  <testcase name="givenIPLWrongCsvFileType_ShouldReturnException" classname="iplpackage.IplAnalyserTest" time="0.155"/>
-  <testcase name="givenIPLBowlerFile_ShouldReturnOutput_WithBestBowlingAverageWithBestStrikeRateInBowlers" classname="iplpackage.IplAnalyserTest" time="0.357"/>
-  <testcase name="givenIPLWrongCsvFile_ShouldReturnException" classname="iplpackage.IplAnalyserTest" time="0.002"/>
-  <testcase name="givenIPLFile_ShouldReturnOutput_WithMaximumRunsAndBestAverage" classname="iplpackage.IplAnalyserTest" time="0.302"/>
-  <testcase name="givenIPLFile_ShouldReturnOutput_MaximumFoursAndSix" classname="iplpackage.IplAnalyserTest" time="0.31"/>
-  <testcase name="givenIPLFile_ShouldReturnOutput_HighestStrikeRate_WithMaximumFoursAndSixes" classname="iplpackage.IplAnalyserTest" time="0.275"/>
-  <testcase name="givenIPLBowlerFile_ShouldReturnOutput_WithMaximumAverageInBowlers" classname="iplpackage.IplAnalyserTest" time="0.318"/>
-  <testcase name="givenIPLBowlerFile_ShouldReturnOutput_WithMaximumWicketsWithBestAverageInBowlers" classname="iplpackage.IplAnalyserTest" time="0.559">
-    <failure message="org.junit.ComparisonFailure: expected:&lt;[Andre Rusell ]&gt; but was:&lt;[MS Dhoni]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[Andre Rusell ]&gt; but was:&lt;[MS Dhoni]&gt;
+  <testcase name="givenIPLBowlerFile_ShouldReturnOutput_WithMaximumRunsAsBatsmenAndMaximumWicketsAsBowlers" classname="iplpackage.IplAnalyserTest" time="1.507">
+    <failure message="org.junit.ComparisonFailure: expected:&lt;[Hardik Pandya]&gt; but was:&lt;[David Warner ]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[Hardik Pandya]&gt; but was:&lt;[David Warner ]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
-	at iplpackage.IplAnalyserTest.givenIPLBowlerFile_ShouldReturnOutput_WithMaximumWicketsWithBestAverageInBowlers(IplAnalyserTest.java:228)
+	at iplpackage.IplAnalyserTest.givenIPLBowlerFile_ShouldReturnOutput_WithMaximumRunsAsBatsmenAndMaximumWicketsAsBowlers(IplAnalyserTest.java:241)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -67,24 +55,7 @@
 	at java.base/java.lang.Thread.run(Thread.java:834)
 </failure>
   </testcase>
-  <testcase name="givenIPLBowlerFile_ShouldReturnOutput_WithBestStrikeRateWith4Wand5wWicketHaulInBowlers" classname="iplpackage.IplAnalyserTest" time="0.349"/>
-  <testcase name="givenIPLBowlerFile_ShouldReturnOutput_WithBestEconomyInBowlers" classname="iplpackage.IplAnalyserTest" time="0.266"/>
-  <testcase name="givenIPCsvFileForDelimiterIssue_ShouldReturnException" classname="iplpackage.IplAnalyserTest" time="0.002"/>
-  <testcase name="givenIPLTestFile_ShouldReturnOutput" classname="iplpackage.IplAnalyserTest" time="0.019"/>
   <system-out><![CDATA[iplpackage.IPLBatsmenCSV
-iplpackage.IPLBatsmenCSV
-iplpackage.IPLBatsmenCSV
-iplpackage.IPLBowler
-iplpackage.IPLBatsmenCSV
-iplpackage.IPLBowler
-iplpackage.IPLBatsmenCSV
-iplpackage.IPLBatsmenCSV
-iplpackage.IPLBatsmenCSV
-iplpackage.IPLBowler
-iplpackage.IPLBatsmenCSV
-iplpackage.IPLBowler
-iplpackage.IPLBowler
-iplpackage.IPLBatsmenCSV
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

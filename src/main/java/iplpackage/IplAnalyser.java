@@ -41,6 +41,9 @@ public class IplAnalyser {
         Comparator<IPLDAO> compareBasedOnBattingAverage = Comparator.comparing(sortType -> sortType.battingAverage);
         this.sortingMap.put(SortingTypes.BEST_ALLROUNDER_AVERAGE, compareBasedOnBattingAverage
                 .thenComparing(sortType -> sortType.bowlingStrikeRate).reversed());
+        Comparator<IPLDAO> compareBasedOnBatsmanRuns = Comparator.comparing(sortType -> sortType.battingNoOfRuns);
+        this.sortingMap.put(SortingTypes.ALL_ROUNDER_BASED_ON_RUNS_AND_WICKETS,compareBasedOnBatsmanRuns.thenComparing
+                (sortType ->sortType.noOfWickets).reversed());
     }
 
     public Map<String, IPLDAO> loadIplData(SortingTypes eClass, String... csvFilePath) throws IPLBatsmenException {

@@ -35,7 +35,10 @@ public class BatsmanAdaptor extends IPLAdapter {
             Iterable<IPLBowler> csvIterable = () -> censusCsvIterator;
             StreamSupport.stream(csvIterable.spliterator(), false)
                     .filter(csvState -> censusStateMap.get(csvState.playerName) != null)
-                    .forEach(csvState -> censusStateMap.get(csvState.playerName).bowlingAverage = Double.parseDouble(csvState.bowlingAverage));
+                    .forEach(csvState -> {
+                        censusStateMap.get(csvState.playerName).bowlingAverage = Double.parseDouble(csvState.bowlingAverage);
+                        censusStateMap.get(csvState.playerName).noOfWickets = csvState.noOfWickets;
+                    });
             return censusStateMap;
         } catch (IOException e) {
             throw new IPLBatsmenException("IO EXCEPTION", IPLBatsmenException.IPLException.INPUT_FILE_EXCEPTION);

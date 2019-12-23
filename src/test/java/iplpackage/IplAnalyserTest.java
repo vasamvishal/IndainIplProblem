@@ -99,7 +99,7 @@ public class IplAnalyserTest {
             Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BATSMAN, IPL_BATSMAN_DATA);
             String noOfSixesandFour = iplAnalyser.sortIplData(SortingTypes.NO_OF_SIXES_AND_FOURS, stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(noOfSixesandFour, IPLBatsmenCSV[].class);
-            Assert.assertEquals("David Warner ", iplBatsmenCSVS[0].playerName);
+            Assert.assertEquals("Marcus Stoinis", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
             e.printStackTrace();
         }
@@ -225,7 +225,20 @@ public class IplAnalyserTest {
             String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
                     (SortingTypes.BEST_ALLROUNDER_AVERAGE, stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
-            Assert.assertEquals("Andre Rusell ", iplBatsmenCSVS[0].playerName);
+            Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].playerName);
+        } catch (IPLBatsmenException e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void givenIPLBowlerFile_ShouldReturnOutput_WithMaximumRunsAsBatsmenAndMaximumWicketsAsBowlers() {
+        try {
+            IplAnalyser iplAnalyser = new IplAnalyser();
+            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BATSMAN, IPL_BATSMAN_DATA, BOWLER_IPL_LOAD_DATA);
+            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
+                    (SortingTypes.ALL_ROUNDER_BASED_ON_RUNS_AND_WICKETS, stringIPLDAOMap);
+            IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
+            Assert.assertEquals("Hardik Pandya", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
             e.printStackTrace();
         }

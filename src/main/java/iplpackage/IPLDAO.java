@@ -1,17 +1,18 @@
 package iplpackage;
 
 public class IPLDAO {
+    public int battingNoOfRuns;
     public double bowlingStrikeRate;
     public String BBI;
     public int fiveWicketHaul;
     public double economy;
-    public String noOfWickets;
+    public double noOfWickets;
     public int fourWicketHaul;
     public String inns;
     public String overs;
     public String position;
     public String playerName;
-    public String noOfMatches;
+    public double noOfMatches;
     public String NO;
     public int noOfRuns;
     public String highestScore;
@@ -30,7 +31,7 @@ public class IPLDAO {
         this.playerName=iplmap.playerName;
         this.noOfMatches=iplmap.noOfMatches;
         this.NO=iplmap.NO;
-        this.noOfRuns=Integer.parseInt(iplmap.noOfRuns);
+        this.battingNoOfRuns=Integer.parseInt(iplmap.noOfRuns);
         this.highestScore=iplmap.highestScore;
         this.battingAverage =iplmap.average.contains("-")?0:Double.parseDouble(iplmap.average);
         this.BF=iplmap.BF;

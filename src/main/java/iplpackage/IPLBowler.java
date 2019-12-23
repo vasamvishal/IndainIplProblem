@@ -11,7 +11,7 @@ public class IPLBowler {
     public String playerName;
 
     @CsvBindByName(column = "Mat")
-    public String noOfMatches;
+    public double noOfMatches;
 
     @CsvBindByName(column = "Inns")
     public String inns;
@@ -23,7 +23,7 @@ public class IPLBowler {
     public String noOfRuns;
 
     @CsvBindByName(column = "Wkts")
-    public String noOfWickets;
+    public double noOfWickets;
 
     @CsvBindByName(column = "BBI")
     public String BBI;
