@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="iplpackage.MockitoClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-23T12:31:46" hostname="admin1-LIVA-Z2V" time="0.281">
+  <properties/>
+  <testcase name="testQuery" classname="iplpackage.MockitoClass" time="0.281"/>
+  <system-out><![CDATA[[MockitoHint] MockitoClass.testQuery (see javadoc for MockitoHint):
+[MockitoHint] 1. Unused -> at iplpackage.MockitoClass.testQuery(MockitoClass.java:32)
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
