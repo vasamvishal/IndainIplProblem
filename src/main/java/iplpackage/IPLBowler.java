@@ -16,7 +16,7 @@ public class IPLBowler {
     @CsvBindByName(column = "Inns")
     public String inns;
 
-    @CsvBindByName(column = "0v")
+    @CsvBindByName(column = "Ov")
     public String overs;
 
     @CsvBindByName(column = "Runs")
@@ -25,14 +25,17 @@ public class IPLBowler {
     @CsvBindByName(column = "Wkts")
     public String noOfWickets;
 
+    @CsvBindByName(column = "BBI")
+    public String BBI;
+
+    @CsvBindByName(column = "Avg")
+    public String bowlingAverage;
+
     @CsvBindByName(column = "Econ")
     public String economy;
 
-    @CsvBindByName(column = "Avg")
-    public String average;
-
     @CsvBindByName(column = "SR")
-    public String strikeRate;
+    public double strikeRate;
 
     @CsvBindByName(column = "4w")
     public String fourWicketHaul;

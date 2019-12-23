@@ -6,7 +6,7 @@ public class IPLBatsmenException extends Exception {
     }
     public IPLException type;
 
-    public IPLBatsmenException(IPLException type, String message) {
+    public IPLBatsmenException(String message,IPLException type ) {
         super(message);
         this.type=type;
     }

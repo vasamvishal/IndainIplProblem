@@ -1,8 +1,10 @@
 package iplpackage;
 
 public class IPLDAO {
+    public double bowlingStrikeRate;
+    public String BBI;
     public int fiveWicketHaul;
-    public String economy;
+    public double economy;
     public String noOfWickets;
     public int fourWicketHaul;
     public String inns;
@@ -13,7 +15,8 @@ public class IPLDAO {
     public String NO;
     public int noOfRuns;
     public String highestScore;
-    public Double average;
+    public Double battingAverage;
+    public Double bowlingAverage;
     public String BF;
     public Double strikeRate;
     public String fours;
@@ -29,12 +32,13 @@ public class IPLDAO {
         this.NO=iplmap.NO;
         this.noOfRuns=Integer.parseInt(iplmap.noOfRuns);
         this.highestScore=iplmap.highestScore;
-        this.average =iplmap.average.contains("-")?0:Double.valueOf(iplmap.average);
+        this.battingAverage =iplmap.average.contains("-")?0:Double.parseDouble(iplmap.average);
         this.BF=iplmap.BF;
         this.strikeRate=Double.valueOf(iplmap.strikeRate);
         this.fours =iplmap.fours;
         this.sixes =iplmap.sixes;
     }
+
 
     public IPLDAO(IPLBowler iplmap) {
         this.position=iplmap.POS;
@@ -42,12 +46,13 @@ public class IPLDAO {
         this.noOfMatches=iplmap.noOfMatches;
         this.noOfRuns=Integer.parseInt(iplmap.noOfRuns);
         this.overs=iplmap.overs;
-        this.average =iplmap.average.contains("-")?0:Double.parseDouble(iplmap.average);
+        this.bowlingAverage =iplmap.bowlingAverage.contains("-")?0:Double.parseDouble(iplmap.bowlingAverage);
         this.inns=iplmap.inns;
         this.noOfWickets=iplmap.noOfWickets;
-        this.economy=iplmap.economy;
+        this.BBI=iplmap.BBI;
+        this.economy=Double.parseDouble(iplmap.economy);
         this.fourWicketHaul=Integer.parseInt(iplmap.fourWicketHaul);
         this.fiveWicketHaul=Integer.parseInt(iplmap.fiveWicketHaul);
-        this.strikeRate=Double.valueOf(iplmap.strikeRate);
-    }
+        this.bowlingStrikeRate=iplmap.strikeRate;
+}
 }

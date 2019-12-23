@@ -1,9 +1,7 @@
 package iplpackage;
-
 import csvbuilderanalyser.CSVBuilderException;
 import csvbuilderanalyser.CSVBuilderFactory;
 import csvbuilderanalyser.ICSVBuilder;
-
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -22,10 +20,9 @@ public abstract class IPLAdapter {
         this.bowlingRecordMap = new HashMap<>();
     }
 
-    public abstract Map<String, IPLDAO> loadIplData(String csvFilePath) throws IPLBatsmenException;
+    public abstract Map<String, IPLDAO> loadIplData(String[] csvFilePath) throws IPLBatsmenException;
 
-    public <E> Map<String, IPLDAO> loadIplData(Class eClass, String csvFilePath) throws IPLBatsmenException {
-
+    public <E> Map<String, IPLDAO> loadIplData(Class eClass, String  csvFilePath) throws IPLBatsmenException {
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
             ICSVBuilder IPLBuilder = CSVBuilderFactory.createCSVBuilder();
             Iterator<E> IPLIterator = IPLBuilder.getCSVFileIterator(reader, eClass);
@@ -43,17 +40,18 @@ public abstract class IPLAdapter {
                         return bowlingRecordMap;
             }
         } catch (IOException e) {
-            throw new IPLBatsmenException(IPLBatsmenException.IPLException.INPUT_FILE_EXCEPTION, "IO EXCEPTION");
+            throw new IPLBatsmenException("IO EXCEPTION",IPLBatsmenException.IPLException.INPUT_FILE_EXCEPTION);
         } catch (CSVBuilderException e) {
-            throw new IPLBatsmenException(IPLBatsmenException.IPLException.CSV_BUILDER_EXCEPTION,
-                    "CSV BUILDER EXCEPTION");
+            throw new IPLBatsmenException("CSV BUILDER EXCEPTION",IPLBatsmenException.IPLException.CSV_BUILDER_EXCEPTION
+                    );
         } catch (RuntimeException e) {
-            throw new IPLBatsmenException(IPLBatsmenException.IPLException.HEADER_ISSUE, "HEADER ISSUUE");
+            throw new IPLBatsmenException("HEADER ISSUUE",IPLBatsmenException.IPLException.HEADER_ISSUE);
         }
-
         return null;
     }
+
 }
+
 
 
 
