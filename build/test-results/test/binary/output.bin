@@ -1,0 +1,4 @@
+n[MockitoHint] MockitoClass.givenIPLBowlingFile_ShouldReturnSizeof3UsingMockito (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at iplpackage.MockitoClass.battingMap(MockitoClass.java:37)
+W[MockitoHint] 2. Unused -> at iplpackage.MockitoClass.battingMap(MockitoClass.java:37)
+

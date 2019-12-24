@@ -30,9 +30,9 @@ public class MockitoClass {
 
     @Before
     public void battingMap() throws IPLBatsmenException {
-        this.map.put("DAvid Warner", new IPLDAO(" David Warner", 23.34));
-        this.map.put("Virat kohli", new IPLDAO("MS Dhoni", 41.4));
-        this.map.put("Ms Dhoni", new IPLDAO("Virat kohli", 24.34));
+        this.map.put("DAvid Warner", new IPLDAO("David Warner", 23.34,"12","3",455));
+        this.map.put("Virat kohli", new IPLDAO("MS Dhoni", 41.4,"13","3",44));
+        this.map.put("Ms Dhoni", new IPLDAO("Virat kohli", 24.34,"12","3",444));
         BatsmanAdaptor BatsmanAdapter = mock(BatsmanAdaptor.class);
         when(BatsmanAdapter.loadIplData(IPL_BATSMAN_DATA)).thenReturn((this.map));
         iplAnalyser1 = new IplAnalyser();
@@ -75,6 +75,17 @@ public class MockitoClass {
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(highestStrikeRate, IPLBatsmenCSV[].class);
             Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
+        }
+    }
+    @Test
+    public void givenIPLFile_ShouldReturnOutput_MaximumFoursAndSix() {
+        try {
+            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser1.loadIplData(SortingTypes.BATSMAN, IPL_BATSMAN_DATA);
+            String noOfSixesandFour = iplAnalyser1.sortIplData(SortingTypes.NO_OF_SIXES_AND_FOURS, stringIPLDAOMap);
+            IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(noOfSixesandFour, IPLBatsmenCSV[].class);
+            Assert.assertEquals("David Warner", iplBatsmenCSVS[0].playerName);
+        } catch (IPLBatsmenException e) {
+            e.printStackTrace();
         }
     }
 }
