@@ -23,8 +23,9 @@ public class IPLDAO {
     public String fours;
     public String sixes;
 
-    public IPLDAO(String playerName) {
+    public IPLDAO(String playerName, double battingAverage) {
         this.playerName = playerName;
+        this.battingAverage=battingAverage;
     }
 
     public IPLDAO(IPLBatsmenCSV iplmap) {
