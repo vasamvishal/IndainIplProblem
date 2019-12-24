@@ -1,5 +1,6 @@
 package iplpackage;
 
+import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -19,43 +20,49 @@ public class MockitoClass {
     private static String BOWLER_IPL_LOAD_DATA = "/home/user/new ipl folder/src/test/resources/IPL2019FactsheetMostWkts.csv";
 
     Map<String, IPLDAO> map = new HashMap<>();
+    IplAnalyser iplAnalyser1 ;
+    BatsmanAdaptor BatsmanAdapter= mock(BatsmanAdaptor.class);
     @Mock
     IPLAdapter adapter;
 
     @Rule
     public MockitoRule mockitoRule= MockitoJUnit.rule();
 
-    public void name() {
-        this.map.put("DAvid Warner", new IPLDAO("1", "David Warner ", "12", "12",
-                "2", "692", "100*", "69.2", "481", "143.86",
-                "1", "8", "57", "21"));
-        this.map.put("Virat kohli", new IPLDAO("1", "David Warner ", "12", "12",
-                "2", "692", "100*", "69.2", "481", "143.86",
-                "1", "8", "57", "21"));
-        this.map.put("Ms Dhoni", new IPLDAO("1", "David Warner ", "12", "12",
-                "2", "692", "100*", "69.2", "481", "143.86",
-                "1", "8", "57", "21"));
+    @Before
+    public void battingMap() throws IPLBatsmenException {
+        this.map.put("DAvid Warner", new IPLDAO(" David Warner"));
+        this.map.put("Virat kohli",new IPLDAO("MS Dhoni"));
+        this.map.put("Ms Dhoni", new IPLDAO("Virat kohli"));
+        BatsmanAdaptor BatsmanAdapter= mock(BatsmanAdaptor.class);
+        when(BatsmanAdapter.loadIplData(IPL_BATSMAN_DATA)).thenReturn((this.map));
+        iplAnalyser1=new IplAnalyser();
+        iplAnalyser1.setValue(BatsmanAdapter);
     }
 
     @Test
     public void givenIPLBattingFile_ShouldReturnSizeOf3UsingMockito() throws IPLBatsmenException {
-        name();
-        BatsmanAdaptor BatsmanAdapter= mock(BatsmanAdaptor.class);
-        IplAnalyser iplAnalyser1 = new IplAnalyser();
-        iplAnalyser1.setValue(BatsmanAdapter);
-        when(BatsmanAdapter.loadIplData(IPL_BATSMAN_DATA)).thenReturn((this.map));
         Map<String, IPLDAO> map1 = iplAnalyser1.loadIplData(SortingTypes.BATSMAN, IPL_BATSMAN_DATA);
         Assert.assertEquals(3,map1.size());
     }
 
     @Test
     public void givenIPLBowlingFile_ShouldReturnSizeof3UsingMockito() throws IPLBatsmenException {
-        name();
+        battingMap();
         BowlerAdaptor BowlerAdaptor=mock(BowlerAdaptor.class);
-        IplAnalyser iplAnalyser1 = new IplAnalyser();
         iplAnalyser1.setValue(BowlerAdaptor);
         when(BowlerAdaptor.loadIplData(BOWLER_IPL_LOAD_DATA)).thenReturn((this.map));
         Map<String, IPLDAO> map1 = iplAnalyser1.loadIplData(SortingTypes.BOWLER, BOWLER_IPL_LOAD_DATA);
         Assert.assertEquals(3,map1.size());
+    }
+    @Test
+    public void givenIPLTestFile_ShouldReturnOutputForPlayers() {
+        try {
+
+            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser1.loadIplData(SortingTypes.BATSMAN, IPL_BATSMAN_DATA);
+            String highestAverage = iplAnalyser1.sortIplData(SortingTypes.PLAYER, stringIPLDAOMap);
+            IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(highestAverage, IPLBatsmenCSV[].class);
+            Assert.assertEquals("David Warner", iplBatsmenCSVS[0].playerName);
+        } catch (IPLBatsmenException e) {
+        }
     }
 }

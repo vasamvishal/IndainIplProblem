@@ -37,4 +37,5 @@ public class IPLBatsmenCSV {
     @CsvBindByName(column = "4s")
     public String fours;
 
+
 }
