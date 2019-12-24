@@ -57,8 +57,8 @@ public class IPLDAO {
         this.bowlingStrikeRate = iplmap.strikeRate;
     }
 
-    public IPLDAO(String string1, String string2_, String string3, String string4, String string5, String string6,
-                  String string7, String string8, String string9, String string10, String string11, String string12,
+    public IPLDAO(String string1, String playerName_, String noOfMatches, String noOfRuns, String overs, String bowlingAverage,
+                  String inns, String noOfWickets, String string9, String string10, String string11, String string12,
                   String string13, String string14) {
     }
 }

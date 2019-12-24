@@ -15,7 +15,7 @@ import java.util.stream.StreamSupport;
 public class BatsmanAdaptor extends IPLAdapter {
 
     @Override
-    public Map<String, IPLDAO> loadIplData(String[] csvFilePath) throws IPLBatsmenException {
+    public Map<String, IPLDAO> loadIplData(String ... csvFilePath) throws IPLBatsmenException {
         Map<String, IPLDAO> IPLMap = this.loadIplData(IPLBatsmenCSV.class, csvFilePath[0]);
         try {
             if (csvFilePath.length == 2)

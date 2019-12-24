@@ -9,6 +9,8 @@ public class IplAnalyser {
     private Map<String, IPLDAO> bowlingSortMap;
     Map<String, IPLDAO> battingRecordMap;
     Map<SortingTypes, Comparator<IPLDAO>> sortingMap;
+    private IPLAdapter setFactory;
+
 
     public IplAnalyser() {
         this.sortingMap = new HashMap<>();
@@ -47,8 +49,8 @@ public class IplAnalyser {
     }
 
     public Map<String, IPLDAO> loadIplData(SortingTypes eClass, String... csvFilePath) throws IPLBatsmenException {
-        IPLAdapter iplObject = IPLFactory.createObject(eClass);
-        Map<String, IPLDAO> stringIPLDAOMap = iplObject.loadIplData(csvFilePath);
+     //   IPLAdapter iplObject = IPLFactory.createObject(eClass);
+        Map<String, IPLDAO> stringIPLDAOMap = setFactory.loadIplData(csvFilePath);
         return stringIPLDAOMap;
     }
 
@@ -59,5 +61,9 @@ public class IplAnalyser {
                 .collect(Collectors.toCollection(ArrayList::new));
         String sortedStateData = new Gson().toJson(sortedList);
         return sortedStateData;
+    }
+
+    public void setValue(IPLAdapter batsman) {
+        this.setFactory=batsman;
     }
 }

@@ -20,7 +20,7 @@ public abstract class IPLAdapter {
         this.bowlingRecordMap = new HashMap<>();
     }
 
-    public abstract Map<String, IPLDAO> loadIplData(String[] csvFilePath) throws IPLBatsmenException;
+    public abstract Map<String, IPLDAO> loadIplData( String ... csvFilePath) throws IPLBatsmenException;
 
     public <E> Map<String, IPLDAO> loadIplData(Class eClass, String  csvFilePath) throws IPLBatsmenException {
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
