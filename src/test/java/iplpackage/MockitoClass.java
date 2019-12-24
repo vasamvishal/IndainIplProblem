@@ -32,15 +32,4 @@ public class MockitoClass {
         when(adapter.loadIplData(IPLAdapter.class,IPL_BATSMAN_DATA)).thenReturn((map));
         Assert.assertEquals(1,map.size());
     }
-
-//    @Test
-//    public void customerReaderText() {
-//        Customer sampleCustomer = new Customer("Susan", "Innova");
-//        EntityManager entityManager = mock(EntityManager.class);
-//        when(entityManager.find(Customer.class,1L)).thenReturn(sampleCustomer);
-//        CustomerReader customerReader = new CustomerReader();
-//        customerReader.setEntityManager(entityManager);
-//        String fullName = customerReader.findFullName(1L);
-//        Assert.assertEquals("Susan Innova",fullName);
-//    }
 }
