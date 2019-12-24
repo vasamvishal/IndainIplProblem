@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="iplpackage.MockitoClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-24T07:45:28" hostname="admin1-LIVA-Z2V" time="0.881">
+<testsuite name="iplpackage.MockitoClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-24T09:44:15" hostname="admin1-LIVA-Z2V" time="0.301">
   <properties/>
-  <testcase name="givenIPLBattingFile_ShouldReturnSizeOf3UsingMockito" classname="iplpackage.MockitoClass" time="0.881"/>
+  <testcase name="givenIPLBowlingFile_ShouldReturnSizeof3UsingMockito" classname="iplpackage.MockitoClass" time="0.301"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
