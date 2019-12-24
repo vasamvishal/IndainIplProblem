@@ -27,20 +27,21 @@ public class MockitoClass {
     public void testQuery() throws IPLBatsmenException {
         IplAnalyser iplAnalyser = new IplAnalyser();
         Map<String,IPLDAO> map =new HashMap<>();
-        map.put("Vishal",new IPLDAO("1","David Warner ","12","12","2","692","100*","69.2","481","143.86","1","8","57","21"));
+        map.put("Vishal",new IPLDAO("1","David Warner ","12","12",
+                "2","692","100*","69.2","481","143.86",
+                "1","8","57","21"));
+        map.put("Vishal12",new IPLDAO("1","David Warner ","12","12",
+                "2","692","100*","69.2","481","143.86",
+                "1","8","57","21"));
+        map.put("Vishal123",new IPLDAO("1","David Warner ","12","12",
+                "2","692","100*","69.2","481","143.86",
+                "1","8","57","21"));
         IPLAdapter adapter= mock(IPLAdapter.class);
         when(adapter.loadIplData(IPLAdapter.class,IPL_BATSMAN_DATA)).thenReturn((map));
         Assert.assertEquals(1,map.size());
     }
 
-//    @Test
-//    public void customerReaderText() {
-//        Customer sampleCustomer = new Customer("Susan", "Innova");
-//        EntityManager entityManager = mock(EntityManager.class);
-//        when(entityManager.find(Customer.class,1L)).thenReturn(sampleCustomer);
-//        CustomerReader customerReader = new CustomerReader();
-//        customerReader.setEntityManager(entityManager);
-//        String fullName = customerReader.findFullName(1L);
-//        Assert.assertEquals("Susan Innova",fullName);
-//    }
+    @Test
+    public void name() {
+    }
 }

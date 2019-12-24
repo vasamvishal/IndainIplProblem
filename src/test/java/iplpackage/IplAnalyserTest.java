@@ -151,7 +151,7 @@ public class IplAnalyserTest {
     public void givenIPLBowlerFile_ShouldReturnOutput_WithMaximumAverageInBowlers() {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
-            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BOWLER,BOWLER_IPL_LOAD_DATA);
+            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BOWLER, BOWLER_IPL_LOAD_DATA);
             String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
                     (SortingTypes.BESTAVERAGE_IN_BOWLERS, stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
@@ -179,7 +179,7 @@ public class IplAnalyserTest {
     public void givenIPLBowlerFile_ShouldReturnOutput_WithBestEconomyInBowlers() {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
-            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BOWLER,BOWLER_IPL_LOAD_DATA);
+            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BOWLER, BOWLER_IPL_LOAD_DATA);
             String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
                     (SortingTypes.BESTECONOMY_IN_BOWLERS, stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
@@ -221,7 +221,8 @@ public class IplAnalyserTest {
     public void givenIPLBowlerFile_ShouldReturnOutput_WithMaximumWicketsWithBestAverageInBowlers() {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
-            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BATSMAN, IPL_BATSMAN_DATA, BOWLER_IPL_LOAD_DATA);
+            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BATSMAN,
+                    IPL_BATSMAN_DATA, BOWLER_IPL_LOAD_DATA);
             String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
                     (SortingTypes.BEST_ALLROUNDER_AVERAGE, stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
@@ -230,11 +231,13 @@ public class IplAnalyserTest {
             e.printStackTrace();
         }
     }
+
     @Test
     public void givenIPLBowlerFile_ShouldReturnOutput_WithMaximumRunsAsBatsmenAndMaximumWicketsAsBowlers() {
         try {
             IplAnalyser iplAnalyser = new IplAnalyser();
-            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BATSMAN, IPL_BATSMAN_DATA, BOWLER_IPL_LOAD_DATA);
+            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BATSMAN, IPL_BATSMAN_DATA,
+                    BOWLER_IPL_LOAD_DATA);
             String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
                     (SortingTypes.ALL_ROUNDER_BASED_ON_RUNS_AND_WICKETS, stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);

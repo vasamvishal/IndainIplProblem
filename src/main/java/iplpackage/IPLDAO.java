@@ -27,36 +27,39 @@ public class IPLDAO {
     }
 
     public IPLDAO(IPLBatsmenCSV iplmap) {
-        this.position=iplmap.POS;
-        this.playerName=iplmap.playerName;
-        this.noOfMatches=iplmap.noOfMatches;
-        this.NO=iplmap.NO;
-        this.battingNoOfRuns=Integer.parseInt(iplmap.noOfRuns);
-        this.highestScore=iplmap.highestScore;
-        this.battingAverage =iplmap.average.contains("-")?0:Double.parseDouble(iplmap.average);
-        this.BF=iplmap.BF;
-        this.strikeRate=Double.valueOf(iplmap.strikeRate);
-        this.fours =iplmap.fours;
-        this.sixes =iplmap.sixes;
+        this.position = iplmap.POS;
+        this.playerName = iplmap.playerName;
+        this.noOfMatches = iplmap.noOfMatches;
+        this.NO = iplmap.NO;
+        this.battingNoOfRuns = Integer.parseInt(iplmap.noOfRuns);
+        this.highestScore = iplmap.highestScore;
+        this.battingAverage = iplmap.average.contains("-") ? 0 : Double.parseDouble(iplmap.average);
+        this.BF = iplmap.BF;
+        this.strikeRate = Double.valueOf(iplmap.strikeRate);
+        this.fours = iplmap.fours;
+        this.sixes = iplmap.sixes;
     }
 
 
     public IPLDAO(IPLBowler iplmap) {
-        this.position=iplmap.POS;
-        this.playerName=iplmap.playerName;
-        this.noOfMatches=iplmap.noOfMatches;
-        this.noOfRuns=Integer.parseInt(iplmap.noOfRuns);
-        this.overs=iplmap.overs;
-        this.bowlingAverage =iplmap.bowlingAverage.contains("-")?0:Double.parseDouble(iplmap.bowlingAverage);
-        this.inns=iplmap.inns;
-        this.noOfWickets=iplmap.noOfWickets;
-        this.BBI=iplmap.BBI;
-        this.economy=Double.parseDouble(iplmap.economy);
-        this.fourWicketHaul=Integer.parseInt(iplmap.fourWicketHaul);
-        this.fiveWicketHaul=Integer.parseInt(iplmap.fiveWicketHaul);
-        this.bowlingStrikeRate=iplmap.strikeRate;
-}
+        this.position = iplmap.POS;
+        this.playerName = iplmap.playerName;
+        this.noOfMatches = iplmap.noOfMatches;
+        this.noOfRuns = Integer.parseInt(iplmap.noOfRuns);
+        this.overs = iplmap.overs;
+        this.bowlingAverage = iplmap.bowlingAverage.contains("-") ? 0 : Double.parseDouble(iplmap.bowlingAverage);
+        this.inns = iplmap.inns;
+        this.noOfWickets = iplmap.noOfWickets;
+        this.BBI = iplmap.BBI;
+        this.economy = Double.parseDouble(iplmap.economy);
+        this.fourWicketHaul = Integer.parseInt(iplmap.fourWicketHaul);
+        this.fiveWicketHaul = Integer.parseInt(iplmap.fiveWicketHaul);
+        this.bowlingStrikeRate = iplmap.strikeRate;
+    }
 
-    public IPLDAO(String s, String david_warner_, String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8, String s9, String s10, String s11, String s12) {
+    public IPLDAO(String string1, String string2_, String string3, String string4, String string5, String string6,
+                  String string7, String string8, String string9, String string10, String string11, String string12,
+                  String string13, String string14) {
     }
 }
+
