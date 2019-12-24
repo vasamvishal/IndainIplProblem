@@ -40,8 +40,4 @@ public class MockitoClass {
         when(adapter.loadIplData(IPLAdapter.class,IPL_BATSMAN_DATA)).thenReturn((map));
         Assert.assertEquals(1,map.size());
     }
-
-    @Test
-    public void name() {
-    }
 }
