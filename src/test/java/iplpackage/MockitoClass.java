@@ -30,9 +30,9 @@ public class MockitoClass {
 
     @Before
     public void battingMap() throws IPLBatsmenException {
-        this.map.put("DAvid Warner", new IPLDAO("David Warner", 23.34,"12","3",455));
-        this.map.put("Virat kohli", new IPLDAO("MS Dhoni", 41.4,"13","3",44));
-        this.map.put("Ms Dhoni", new IPLDAO("Virat kohli", 24.34,"12","3",444));
+        this.map.put("DAvid Warner", new IPLDAO("David Warner", 23.34,"12","3",455,45.54));
+        this.map.put("Virat kohli", new IPLDAO("MS Dhoni", 41.4,"13","3",44,45.44));
+        this.map.put("Ms Dhoni", new IPLDAO("Virat kohli", 24.34,"12","3",444,56.74));
         BatsmanAdaptor BatsmanAdapter = mock(BatsmanAdaptor.class);
         when(BatsmanAdapter.loadIplData(IPL_BATSMAN_DATA)).thenReturn((this.map));
         iplAnalyser1 = new IplAnalyser();
@@ -83,6 +83,18 @@ public class MockitoClass {
             Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser1.loadIplData(SortingTypes.BATSMAN, IPL_BATSMAN_DATA);
             String noOfSixesandFour = iplAnalyser1.sortIplData(SortingTypes.NO_OF_SIXES_AND_FOURS, stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(noOfSixesandFour, IPLBatsmenCSV[].class);
+            Assert.assertEquals("David Warner", iplBatsmenCSVS[0].playerName);
+        } catch (IPLBatsmenException e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void givenIPLFile_ShouldReturnOutput_HighestStrikeRate_WithMaximumFoursAndSixes() {
+        try {
+            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser1.loadIplData(SortingTypes.BATSMAN, IPL_BATSMAN_DATA);
+            String highestStrikeRate = iplAnalyser1.sortIplData(SortingTypes.HIGHEST_STRIKERATE_BASED_ON_FOURSANDSIXES,
+                    stringIPLDAOMap);
+            IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(highestStrikeRate, IPLBatsmenCSV[].class);
             Assert.assertEquals("David Warner", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
             e.printStackTrace();

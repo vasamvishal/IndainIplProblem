@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="iplpackage.MockitoClass" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-12-24T13:22:56" hostname="admin1-desktop" time="0.121">
+<testsuite name="iplpackage.MockitoClass" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-24T13:26:01" hostname="admin1-desktop" time="0.072">
   <properties/>
-  <testcase name="givenIPLTestFile_ShouldReturnOutputForPlayers" classname="iplpackage.MockitoClass" time="0.091"/>
-  <testcase name="givenIPLTestFile_ShouldReturnOutput_OfHighestAverageRate" classname="iplpackage.MockitoClass" time="0.003"/>
-  <testcase name="givenIPLBowlingFile_ShouldReturnSizeof3UsingMockito" classname="iplpackage.MockitoClass" time="0.021"/>
-  <testcase name="givenIPLFile_ShouldReturnOutput_MaximumFoursAndSix" classname="iplpackage.MockitoClass" time="0.004"/>
-  <testcase name="givenIPLBattingFile_ShouldReturnSizeOf3UsingMockito" classname="iplpackage.MockitoClass" time="0.002"/>
-  <system-out><![CDATA[[MockitoHint] MockitoClass.givenIPLBowlingFile_ShouldReturnSizeof3UsingMockito (see javadoc for MockitoHint):
-[MockitoHint] 1. Unused -> at iplpackage.MockitoClass.battingMap(MockitoClass.java:37)
-[MockitoHint] 2. Unused -> at iplpackage.MockitoClass.battingMap(MockitoClass.java:37)
-
-]]></system-out>
+  <testcase name="givenIPLFile_ShouldReturnOutput_HighestStrikeRate_WithMaximumFoursAndSixes" classname="iplpackage.MockitoClass" time="0.072"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
