@@ -165,7 +165,7 @@ public class MockitoClass {
                 String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
                         (SortingTypes.BESTECONOMY_IN_BOWLERS, stringIPLDAOMap);
                 IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
-                Assert.assertEquals("Shivam Dube", iplBatsmenCSVS[0].playerName);
+                Assert.assertEquals("Ms Dhoni", iplBatsmenCSVS[0].playerName);
             } catch (IPLBatsmenException e) {
                 e.printStackTrace();
             }
@@ -177,7 +177,7 @@ public class MockitoClass {
                     String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
                             (SortingTypes.BESTSTRIKE_RATE_WITH4AND6, stringIPLDAOMap);
                     IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
-                    Assert.assertEquals("Lasith Malinga", iplBatsmenCSVS[0].playerName);
+                    Assert.assertEquals("Virat Kohli", iplBatsmenCSVS[0].playerName);
                 } catch (IPLBatsmenException e) {
                     e.printStackTrace();
                 }
@@ -191,7 +191,7 @@ public class MockitoClass {
                     String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
                             (SortingTypes.BEST_AVERGAE_BESTSTRIKE_RATE, stringIPLDAOMap);
                     IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
-                    Assert.assertEquals("Krishnappa Gowtham", iplBatsmenCSVS[0].playerName);
+                    Assert.assertEquals("David Warner", iplBatsmenCSVS[0].playerName);
                 } catch (IPLBatsmenException e) {
                     e.printStackTrace();
                 }
@@ -221,11 +221,10 @@ public class MockitoClass {
                     String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
                             (SortingTypes.ALL_ROUNDER_BASED_ON_RUNS_AND_WICKETS, stringIPLDAOMap);
                     IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
-                    Assert.assertEquals("Hardik Pandya", iplBatsmenCSVS[0].playerName);
+                    Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].playerName);
                 } catch (IPLBatsmenException e) {
                     e.printStackTrace();
                 }
             }
         }
-
     }
