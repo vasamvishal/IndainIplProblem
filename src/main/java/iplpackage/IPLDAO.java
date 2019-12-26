@@ -23,7 +23,7 @@ public class IPLDAO {
     public String fours;
     public String sixes;
 
-    public IPLDAO(String playerName, double battingAverage,String fours,String sixes,int noOfRuns,double strikeRate,double bowlingAverage) {
+    public IPLDAO(String playerName, double battingAverage,String fours,String sixes,int noOfRuns,double strikeRate,double bowlingAverage,double economy) {
         this.playerName = playerName;
         this.battingAverage=battingAverage;
         this.fours = fours;
@@ -31,6 +31,7 @@ public class IPLDAO {
         this.noOfRuns = noOfRuns;
         this.strikeRate = strikeRate;
         this.bowlingAverage = bowlingAverage;
+        this.economy = economy;
     }
 
     public IPLDAO(IPLBatsmenCSV iplmap) {

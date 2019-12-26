@@ -30,9 +30,9 @@ public class MockitoClass {
 
     @Before
     public void battingMap() throws IPLBatsmenException {
-        this.map.put("DAvid Warner", new IPLDAO("David Warner", 23.34,"12","3",455,45.54,67.78));
-        this.map.put("Virat kohli", new IPLDAO("MS Dhoni", 41.4,"13","3",44,45.44,67.87));
-        this.map.put("Ms Dhoni", new IPLDAO("Virat kohli", 24.34,"12","3",444,56.74,56.67));
+        this.map.put("DAvid Warner", new IPLDAO("David Warner", 23.34,"12","3",455,45.54,67.78,45.67));
+        this.map.put("Virat kohli", new IPLDAO("MS Dhoni", 41.4,"13","3",44,45.44,67.87,67.85));
+        this.map.put("Ms Dhoni", new IPLDAO("Virat kohli", 24.34,"12","3",444,56.74,56.67,67.87));
         BatsmanAdaptor BatsmanAdapter = mock(BatsmanAdaptor.class);
         when(BatsmanAdapter.loadIplData(IPL_BATSMAN_DATA)).thenReturn((this.map));
         iplAnalyser1 = new IplAnalyser();
@@ -149,7 +149,20 @@ public class MockitoClass {
             String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData(
                     SortingTypes.BESTSTRIKE_RATE_IN_BOWLERS, stringIPLDAOMap);
             IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
-            Assert.assertEquals("", iplBatsmenCSVS[0].playerName);
+            Assert.assertEquals("David Warner", iplBatsmenCSVS[0].playerName);
+        } catch (IPLBatsmenException e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void givenIPLBowlerFile_ShouldReturnOutput_WithBestEconomyInBowlers() {
+        try {
+            IplAnalyser iplAnalyser = new IplAnalyser();
+            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser.loadIplData(SortingTypes.BOWLER, BOWLER_IPL_LOAD_DATA);
+            String basedOnStrikeRateAndAverage = iplAnalyser.sortIplData
+                    (SortingTypes.BESTECONOMY_IN_BOWLERS, stringIPLDAOMap);
+            IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
+            Assert.assertEquals("Shivam Dube", iplBatsmenCSVS[0].playerName);
         } catch (IPLBatsmenException e) {
             e.printStackTrace();
         }
