@@ -13,7 +13,7 @@ public class BowlerAdapterTest {
     public void givenClassShouldLoadFile_Returnrecords() {
         try {
             BatsmanAdaptor batsmanAdaptor = new BatsmanAdaptor();
-            Map<String, IPLDAO> stringIPLDAOMap = batsmanAdaptor.loadIplData(IPLBatsmenCSV.class, BOWLER_IPL_LOAD_DATA);
+            Map<String, IPLDAO> stringIPLDAOMap = batsmanAdaptor.loadIplData(IPLBowler.class, BOWLER_IPL_LOAD_DATA);
             Assert.assertEquals(99,stringIPLDAOMap.size());
         }
         catch (Exception e)
@@ -21,4 +21,16 @@ public class BowlerAdapterTest {
 
         }
     }
+    @Test
+    public void givenClassShouldLoadFile_ReturnException() {
+        try {
+            BatsmanAdaptor batsmanAdaptor = new BatsmanAdaptor();
+            Map<String, IPLDAO> stringIPLDAOMap = batsmanAdaptor.loadIplData(IPLBatsmenCSV.class, BOWLER_IPL_LOAD_DATA);
+        }
+        catch (IPLBatsmenException e)
+        {
+            Assert.assertEquals(IPLBatsmenException.IPLException.HEADER_ISSUE,e.type);
+        }
+    }
+
 }
