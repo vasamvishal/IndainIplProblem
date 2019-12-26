@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="iplpackage.BatsmanAdapterTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-12-24T13:40:22" hostname="admin1-desktop" time="0.56">
+<testsuite name="iplpackage.BatsmanAdapterTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2019-12-24T13:39:50" hostname="admin1-desktop" time="80.315">
   <properties/>
-  <testcase name="givenClassShouldLoadFileforBattingandbowling_AndReturnAverageOfBatsman" classname="iplpackage.BatsmanAdapterTest" time="0.434"/>
-  <testcase name="givenClassShouldLoadFile_Returnrecords" classname="iplpackage.BatsmanAdapterTest" time="0.126"/>
+  <testcase name="givenClassShouldLoadFileforBattingandbowling_AndReturnAverageOfBatsman" classname="iplpackage.BatsmanAdapterTest" time="80.315">
+    <skipped/>
+  </testcase>
   <system-out><![CDATA[iplpackage.IPLBatsmenCSV
-iplpackage.IPLBatsmenCSV
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

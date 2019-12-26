@@ -100,4 +100,17 @@ public class MockitoClass {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenIPLFile_ShouldReturnOutput_WithGreatAveragesAndHighestStrikeRate() {
+        try {
+            Map<String, IPLDAO> stringIPLDAOMap = iplAnalyser1.loadIplData(SortingTypes.BATSMAN, IPL_BATSMAN_DATA);
+            String basedOnStrikeRateAndAverage = iplAnalyser1.sortIplData
+                    (SortingTypes.HIGHEST_AVERAGE_BASED_ON_HIGHEST_STRIKERATE, stringIPLDAOMap);
+            IPLBatsmenCSV[] iplBatsmenCSVS = new Gson().fromJson(basedOnStrikeRateAndAverage, IPLBatsmenCSV[].class);
+            Assert.assertEquals("MS Dhoni", iplBatsmenCSVS[0].playerName);
+        } catch (IPLBatsmenException e) {
+            e.printStackTrace();
+        }
+    }
 }
